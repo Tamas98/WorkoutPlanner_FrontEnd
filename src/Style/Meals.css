@@ -1,0 +1,172 @@
+td,th{
+  text-align: center !important;
+  color: red !important;
+}
+
+th{
+  background-color: #282c34 !important;
+}
+
+td{
+  background-color: #282c45;
+}
+
+.MuiPaper-root{
+  background-color: #282c45 !important;
+  color: red !important;
+  min-height: 80.5vh !important;
+}
+
+.MuiTableCell-root{
+  border: none !important;
+}
+
+.MuiButtonBase-root,.MuiIcon-root,.MuiTypography-root{
+  color:red !important;
+}
+
+.MuiInputBase-input{
+  color: crimson;
+}
+
+.MuiTypography-h6{
+  display:none
+}
+
+.MuiMenu-paper{
+  min-height: fit-content !important;
+}
+
+.open-button {
+  background-color: crimson;
+  color: black;
+  padding: 10px 1px;
+  border: none;
+  cursor: pointer;
+  opacity: 0.8;
+  position: absolute;
+  z-index: 1;
+  margin: 0.5rem;
+  font-weight: bold;
+  width: 210px;
+  letter-spacing: 0.2rem;
+}
+
+.form-popup {
+  display: none;
+  margin: 0.5rem;
+  position: absolute;
+  z-index: 20;
+}
+
+.form {
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  max-width: 300px;
+  padding: 10px;
+  background-color: #1d2d3f;
+  color:red;
+}
+
+.form .btn:hover, .open-button:hover {
+  opacity: 1;
+}
+
+.form input{
+  margin: 7px;
+  border: 4px solid black;
+  width: 13rem;
+  height: 2rem;
+  text-align: center;
+  font-weight: bold;
+}
+
+.form .cancel {
+  background-color: red;
+}
+
+.form .btn,.form input:last-of-type {
+  background-color: crimson;
+  color: black;
+  font-weight: bold;
+  padding: 16px 20px;
+  border: none;
+  margin: 0;
+  height: auto;
+  cursor: pointer;
+  width: 100%;
+  margin-bottom: 10px;
+  opacity: 0.8;
+  letter-spacing: 0.2rem;
+}
+
+#graybackground{
+  position: absolute;
+  background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0,0.4);
+  justify-content: center;
+  width: 99%;
+  height: 98%;
+  z-index: 99;
+  margin: 0;
+  display: none;
+}
+
+#cancel{
+  vertical-align: top;
+  height: 10%;
+  font-weight: bold;
+  position: absolute;
+  right: 0;
+  top: 0;
+  background: crimson;
+  border: none;
+  padding: 0.5rem;
+  padding-top: .1rem;
+}
+
+#popupForm{
+  top: 6rem;
+  max-width: 400px;
+  padding: 2rem;
+  border: 2px solid black;
+  height: fit-content;
+  position: relative;
+  background-color: #1d2d3f;
+  color:red;
+  display: flex;
+  justify-content: center;
+}
+
+#addToDateForm{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+#addToDateForm input{
+  width: 15rem;
+  padding: 0.7rem;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+#addToDateForm input:first-of-type{
+  display:none;
+}
+
+#addToDateForm input:last-of-type{
+  color:black;
+  font-weight: bold;
+  border:none;
+  background: crimson;
+  margin-top:1rem;
+}
+
+select{
+  width: 13.5rem;
+  border: 4px solid black;
+  margin: 0.5rem;
+  padding: 0.5rem;
+}

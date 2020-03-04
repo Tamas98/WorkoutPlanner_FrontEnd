@@ -1,0 +1,43 @@
+.said{
+    margin-top: -8rem;
+}
+
+.actualQuote{
+    width: 90%;
+    margin-top: 11rem;
+    text-align: center;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+.slider{
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(65,65,88,1) 49%, rgba(133,133,133,1) 100%);
+    color:white;
+    font-size:1rem;
+    height: 80.5vh;
+}
+
+.slide{
+    justify-content: center;
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+}
+
+polygon{
+    fill: white;
+}
+
+@media screen and (max-width:850px){
+    .slider a.nextButton,.slider a.previousButton{
+        display:none;
+    }
+
+    .actualQuote {
+        margin-top: 9rem;
+    }
+
+    .said{
+        margin-top: -3rem;
+    }
+}
