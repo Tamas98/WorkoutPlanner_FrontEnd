@@ -12,6 +12,10 @@ class App extends React.Component {
         {
           quote: "Why is it my job to save these people? Why do I have to be some kind of hero?",
           said: "Jensen Ackles"
+        },
+        {
+          quote:"Ne legyél buzi bazdmeg",
+          said:"Kathi Béla(A 3. legnagyobb ember)"
         }
       ]
   }

@@ -1,0 +1,32 @@
+#mealTable,#exerciseTable{
+    display: none;
+    position: absolute;
+    width: 90%;
+    z-index: 30;
+    top: 15%;
+}
+
+#tables{
+    display:none;
+    justify-content: center;
+    background-color: rgba(0,0,0,0.5);
+    width: 99%;
+    height: 98%;
+    z-index: 99;
+    margin: 0;
+    position: absolute;
+    top: 0;
+}
+
+.tableNavButton{
+    margin: 0 2rem;
+    font-size:2rem;
+    padding: 0.5rem 4rem;
+}
+
+#navButtons{
+    display: flex;
+    width:90%;
+    height: fit-content;
+    justify-content: space-evenly;
+}

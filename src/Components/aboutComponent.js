@@ -14,10 +14,10 @@ class aboutComponent extends React.Component{
             <>
                 <Router>
                     <div className="float-left d-grid">
-                        <Link to="/">Basics Knowledge</Link>
-                        <Link to="/creator">About the creator</Link>
-                        <Link to="/project">About the project</Link>
-                        <Link to="/contact">Contact</Link>
+                        <Link to="/about/">Basics Knowledge</Link>
+                        <Link to="/about/creator">About the creator</Link>
+                        <Link to="/about/project">About the project</Link>
+                        <Link to="/about/contact">Contact</Link>
                     </div>
 
                     <Switch>
