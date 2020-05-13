@@ -1,7 +1,8 @@
 import React from 'react';
 import MaterialTable from 'material-table'
-import '../Style/Meals.css'
-
+import '../Style/MealAndExerciseStyle.css'
+import Error from "./ErrorComponent";
+import {openForm,closeForm,close,display,getAnswersMeaning} from "../Elements/FunctionHolder";
 
 
 class exerciseComponet extends React.Component{
@@ -20,11 +21,11 @@ class exerciseComponet extends React.Component{
     }
 
     componentDidMount(){
-        fetch('http://localhost:8082/api/exercises',{method: 'GET'})
+        fetch('http://localhost:8082/exercises',{method: 'GET'})
             .then(response => response.json())
             .then(responseData => {
                 this.setState({
-                    exercises: responseData._embedded.exercises,
+                    exercises: responseData
                 })
             }).catch(err => console.error(err));
     }
@@ -50,29 +51,16 @@ class exerciseComponet extends React.Component{
 
             fetch('http://localhost:8082/days/exerciseAdd' , {method:"POST",body:JSON.stringify(body),headers: {
                     'Content-Type': 'application/json'
-                }}).then(response => console.log(response.text()))
-                .catch(err => console.error(err));
+                }}).then(response => response.text())
+                .then(answer =>{
+                   getAnswersMeaning(answer)
+                })
+                .catch(err => window.alert(err));
 
 
             document.getElementById("addToDateForm").reset()
             close()
 
-        }
-
-        function close(){
-            document.getElementById("graybackground").style.display = "none";
-        }
-
-        function openForm() {
-            document.getElementById("myForm").style.display = "block";
-            document.getElementById("open").style.display="none";
-            document.getElementById("close").style.display="block";
-        }
-
-        function closeForm() {
-            document.getElementById("myForm").style.display = "none";
-            document.getElementById("open").style.display="block";
-            document.getElementById("close").style.display="none";
         }
 
         function addNew(event){
@@ -92,24 +80,24 @@ class exerciseComponet extends React.Component{
                 "burn": burn
             }
 
-            fetch('http://localhost:8082/api/exercises' , {method:"POST",body:JSON.stringify(exercise),headers: {
+            fetch('http://localhost:8082/exercises' , {method:"POST",body:JSON.stringify(exercise),headers: {
                     'Content-Type': 'application/json'
-                }}).then(response => response.json())
-                .catch(err => console.error(err));
-
-            this.setState((prevState) => {
-                return{exercises: [...prevState.exercises,exercise]}
+                }}).then(response => {
+                if(response.ok){
+                    window.alert("New exercise successfully added to database");
+                    this.setState((prevState) => {
+                        return {exercises: [...prevState.exercises,exercise]}
+                    })
+                    closeForm()
+                }else{
+                    throw new Error(response.statusCode);
+                }
             })
-
-            document.getElementById("newExerciseForm").reset()
+                .catch(err =>
+                    window.alert("Exercise already exists in database")
+                );
 
             closeForm()
-        }
-
-        function display(id){
-            document.getElementById("id").value = id;
-            document.getElementById("date").valueAsDate = new Date();
-            document.getElementById("graybackground").style.display = "flex";
         }
 
         addNew = addNew.bind(this)
@@ -131,7 +119,7 @@ class exerciseComponet extends React.Component{
                 <button id="open" className="open-button" onClick={openForm}>Add new exercise</button>
 
                 <div className="form-popup" id="myForm">
-                    <form onSubmit={addNew} id="newExerciseForm" method="post" className="form">
+                    <form onSubmit={addNew} id="newElementForm" method="post" className="form">
                         <h2>Type data about the Exercise</h2>
 
                         <input id="newName" type="text" name="name" placeholder="Exercise name"/><br></br>

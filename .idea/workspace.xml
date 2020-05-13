@@ -2,15 +2,24 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="397e9f44-7d3a-47d3-b4df-79cf9c912f03" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Components/EvaluationComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/EvaluationComponent.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/aboutComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/aboutComponent.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/Layout.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Layout.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/aboutComponent.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Components/exerciseComponet.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/exerciseComponet.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Components/foodComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/foodComponent.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Style/Meals.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/Style/Meals.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/homeComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/homeComponent.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Elements/AboutBasics.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Elements/Table.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Elements/mainPageSlider.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Elements/mainPageSlider.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Elements/navBarComponent.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Style/Meals.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/Style/MealAndExerciseStyle.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Style/Slider.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/Style/SliderStyle.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Style/about.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Style/layout.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/Style/LayoutStyle.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,8 +30,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="SCSS File" />
-        <option value="JavaScript File" />
         <option value="CSS File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -46,7 +55,7 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="npm.start">
     <configuration name="css" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/package.json" />
       <command value="run" />
@@ -57,6 +66,17 @@
       <envs />
       <method v="2" />
     </configuration>
+    <configuration name="start" type="js.build_tools.npm" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="start" />
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="npm.start" />
+      <item itemvalue="npm.css" />
+    </list>
     <recent_temporary>
       <list>
         <item itemvalue="npm.css" />
@@ -81,7 +101,26 @@
       <workItem from="1583344438552" duration="208000" />
       <workItem from="1583396005928" duration="12829000" />
       <workItem from="1583475462305" duration="25265000" />
-      <workItem from="1583572773346" duration="2269000" />
+      <workItem from="1583572773346" duration="2870000" />
+      <workItem from="1583751887176" duration="3752000" />
+      <workItem from="1583759839166" duration="1182000" />
+      <workItem from="1583831227863" duration="18000" />
+      <workItem from="1583929966281" duration="4007000" />
+      <workItem from="1584010519783" duration="223000" />
+      <workItem from="1584719544630" duration="5192000" />
+      <workItem from="1585721606301" duration="52000" />
+      <workItem from="1585723553280" duration="2296000" />
+      <workItem from="1585725916069" duration="549000" />
+      <workItem from="1586004262814" duration="1597000" />
+      <workItem from="1586085430758" duration="2088000" />
+      <workItem from="1586102965824" duration="7787000" />
+      <workItem from="1586149321782" duration="10790000" />
+      <workItem from="1586235627686" duration="20294000" />
+      <workItem from="1586322385658" duration="10206000" />
+      <workItem from="1586356654089" duration="351000" />
+      <workItem from="1586407726626" duration="10815000" />
+      <workItem from="1586496657628" duration="5287000" />
+      <workItem from="1587111356866" duration="187000" />
     </task>
     <servers />
   </component>
@@ -89,25 +128,51 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state width="1579" height="222" key="GridCell.Tab.0.bottom" timestamp="1583235521586">
-      <screen x="0" y="0" width="1600" height="860" />
+    <state x="228" y="71" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1585723713149">
+      <screen x="0" y="0" width="1536" height="826" />
     </state>
+    <state x="228" y="71" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.826@0.0.1536.826" timestamp="1585723713149" />
+    <state x="503" y="163" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1586356675412">
+      <screen x="0" y="0" width="1536" height="826" />
+    </state>
+    <state x="503" y="163" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1536.826@0.0.1536.826" timestamp="1586356675412" />
+    <state x="557" y="178" key="FileChooserDialogImpl" timestamp="1587111531092">
+      <screen x="0" y="0" width="1536" height="826" />
+    </state>
+    <state x="557" y="178" key="FileChooserDialogImpl/0.0.1536.826@0.0.1536.826" timestamp="1587111531092" />
+    <state x="580" y="185" key="FileChooserDialogImpl/0.0.1600.860@0.0.1600.860" timestamp="1583831242640" />
+    <state width="1515" height="211" key="GridCell.Tab.0.bottom" timestamp="1586538988697">
+      <screen x="0" y="0" width="1536" height="826" />
+    </state>
+    <state width="1515" height="211" key="GridCell.Tab.0.bottom/0.0.1536.826@0.0.1536.826" timestamp="1586538988697" />
     <state width="1579" height="222" key="GridCell.Tab.0.bottom/0.0.1600.860@0.0.1600.860" timestamp="1583235521586" />
-    <state width="1579" height="222" key="GridCell.Tab.0.center" timestamp="1583235521586">
-      <screen x="0" y="0" width="1600" height="860" />
+    <state width="1515" height="211" key="GridCell.Tab.0.center" timestamp="1586538988697">
+      <screen x="0" y="0" width="1536" height="826" />
     </state>
+    <state width="1515" height="211" key="GridCell.Tab.0.center/0.0.1536.826@0.0.1536.826" timestamp="1586538988697" />
     <state width="1579" height="222" key="GridCell.Tab.0.center/0.0.1600.860@0.0.1600.860" timestamp="1583235521586" />
-    <state width="1579" height="222" key="GridCell.Tab.0.left" timestamp="1583235521586">
-      <screen x="0" y="0" width="1600" height="860" />
+    <state width="1515" height="211" key="GridCell.Tab.0.left" timestamp="1586538988697">
+      <screen x="0" y="0" width="1536" height="826" />
     </state>
+    <state width="1515" height="211" key="GridCell.Tab.0.left/0.0.1536.826@0.0.1536.826" timestamp="1586538988697" />
     <state width="1579" height="222" key="GridCell.Tab.0.left/0.0.1600.860@0.0.1600.860" timestamp="1583235521586" />
-    <state width="1579" height="222" key="GridCell.Tab.0.right" timestamp="1583235521586">
-      <screen x="0" y="0" width="1600" height="860" />
+    <state width="1515" height="211" key="GridCell.Tab.0.right" timestamp="1586538988697">
+      <screen x="0" y="0" width="1536" height="826" />
     </state>
+    <state width="1515" height="211" key="GridCell.Tab.0.right/0.0.1536.826@0.0.1536.826" timestamp="1586538988697" />
     <state width="1579" height="222" key="GridCell.Tab.0.right/0.0.1600.860@0.0.1600.860" timestamp="1583235521586" />
-    <state x="456" y="195" key="run.anything.popup" timestamp="1583414340687">
+    <state x="582" y="333" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1586251915918">
+      <screen x="0" y="0" width="1536" height="826" />
+    </state>
+    <state x="582" y="333" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.826@0.0.1536.826" timestamp="1586251915918" />
+    <state x="438" y="187" key="run.anything.popup" timestamp="1586328267986">
+      <screen x="0" y="0" width="1536" height="826" />
+    </state>
+    <state x="438" y="187" key="run.anything.popup/0.0.1536.826@0.0.1536.826" timestamp="1586328267986" />
+    <state x="456" y="195" key="run.anything.popup/0.0.1600.860@0.0.1600.860" timestamp="1583414340687" />
+    <state x="463" y="180" width="672" height="678" key="search.everywhere.popup" timestamp="1583930649562">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state x="456" y="195" key="run.anything.popup/0.0.1600.860@0.0.1600.860" timestamp="1583414340687" />
+    <state x="463" y="180" width="672" height="678" key="search.everywhere.popup/0.0.1600.860@0.0.1600.860" timestamp="1583930649562" />
   </component>
 </project>

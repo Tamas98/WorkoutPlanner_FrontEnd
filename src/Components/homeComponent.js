@@ -1,15 +1,9 @@
 import React from 'react'
 import MainSlider from '../Elements/mainPageSlider'
 
-class homeComponent extends React.Component{
-
-    render(){
-        return(
-            <>
-                <MainSlider quotes={this.props.quotes}/>
-            </>
-        )
-    }
-}
+const homeComponent = ({quotes}) =>
+    <>
+        <MainSlider quotes={quotes}/>
+    </>
 
 export default homeComponent

@@ -1,9 +1,10 @@
 import React from 'react';
 import MaterialTable from 'material-table'
-import '../Style/Meals.css'
+import '../Style/MealAndExerciseStyle.css'
 import Error from './ErrorComponent';
+import {openForm,closeForm,close,display,getAnswersMeaning} from "../Elements/FunctionHolder";
 
-class foodComponent extends React.Component{
+export default class mealComponent extends React.Component{
 
     constructor(props) {
         super(props);
@@ -23,36 +24,20 @@ class foodComponent extends React.Component{
     }
 
     componentDidMount(){
-        fetch('http://localhost:8082/api/meals',{method: 'GET'})
+        fetch('http://localhost:8082/meals',{method: 'GET'})
         .then(response => response.json())
         .then(responseData => {
             this.setState({
-                meals: responseData._embedded.meals
+                meals: responseData
             })
-        }).catch(() => <Error/>);
+        }).catch((error) => <Error error={error}/>);
     }
 
     render(){
 
-        let choosenFood;
-
-        function close(){
-            document.getElementById("graybackground").style.display = "none";
-        }
-
-        function openForm() {
-            document.getElementById("myForm").style.display = "block";
-            document.getElementById("open").style.display="none";
-            document.getElementById("close").style.display="block";
-        }
-
-        function closeForm() {
-            document.getElementById("myForm").style.display = "none";
-            document.getElementById("open").style.display="block";
-            document.getElementById("close").style.display="none";
-        }
-
+        let chosenFood;
         function addNew(event){
+
             event.preventDefault()
 
             let name = document.getElementById("newName").value;
@@ -76,48 +61,46 @@ class foodComponent extends React.Component{
                 "salt": salt
             }
 
-            fetch('http://localhost:8082/api/meals' , {method:"POST",body:JSON.stringify(meal),headers: {
+            fetch('http://localhost:8082/meals' , {method:"POST",body:JSON.stringify(meal),headers: {
                     'Content-Type': 'application/json'
-                }}).then(response => response.json())
-                .catch(err => console.error(err));
-
-            this.setState((prevState) => {
-                return{meals: [...prevState.meals,meal]}
+                }}).then(response => {
+                    if(response.ok){
+                        window.alert("New Meal successfully added to database");
+                        this.setState((prevState) => {
+                            return {meals: [...prevState.meals,meal]}
+                        })
+                        closeForm()
+                    }else{
+                        throw new Error(response.statusCode);
+                    }
             })
-
-            document.getElementById("newMealForm").reset()
+                .catch(err =>
+                    window.alert("Food already exists in database")
+                );
         }
 
-        function addToDate(event){
-            event.preventDefault();
-
-            console.log(choosenFood)
+        function addToDate(chosenFood) {
 
             let date = document.getElementById("date").value;
             let eaten = document.getElementById("eaten").value;
             let id = document.getElementById("id").value;
 
-
             let body = {
-                "meal":choosenFood,
+                "meal": chosenFood,
                 "date": date,
                 "eaten": eaten,
-                "id":id
+                "id": id
             }
 
-            let day ={
-                "date":date,
-                "intake":eaten,
-                "burn": 0,
-                "result": 0,
-                "meals": [choosenFood],
-                "exercises": []
-            }
-
-            fetch('http://localhost:8082/days/mealAdd' , {method:"POST",body:JSON.stringify(body),headers: {
-                'Content-Type': 'application/json'
-            }}).then(response => console.log(response.text()))
-                .catch(err => console.error(err));
+            fetch('http://localhost:8082/days/mealAdd', {
+                method: "POST", body: JSON.stringify(body), headers: {
+                    'Content-Type': 'application/json'
+                }
+            }).then(response => response.text())
+                .then(answer =>{
+                    getAnswersMeaning(answer)
+                })
+                .catch(err => window.alert(err));
 
 
             document.getElementById("addToDateForm").reset()
@@ -125,22 +108,16 @@ class foodComponent extends React.Component{
 
         }
 
-        function display(id){
-            document.getElementById("id").value = id;
-            document.getElementById("date").valueAsDate = new Date();
-            document.getElementById("graybackground").style.display = "flex";
-        }
-
         addNew = addNew.bind(this)
+
 
         return(
             <>
-                {this.state.meals.length > 0 ?
                 <>
                     <div id="graybackground">
                         <div id="popupForm">
                             <button id="cancel" onClick={close}>X</button>
-                            <form id="addToDateForm"  onSubmit={addToDate} method="put" action="?addMeal">
+                            <form id="addToDateForm"  onSubmit={(e) => {e.preventDefault();addToDate(chosenFood)}} method="put" action="?addMeal">
                                 <input id="id" type="numeric" name="id" placeholder="ID"/>
                                 <input id="eaten" type="number" name="eaten" placeholder="Eaten amount" required step="0.01"
                                        min="0"/>
@@ -153,7 +130,7 @@ class foodComponent extends React.Component{
                     <button id="open" className="open-button" onClick={openForm}>Add new meal</button>
 
                     <div className="form-popup" id="myForm">
-                        <form id="newMealForm" onSubmit={addNew} method="post" className="form">
+                        <form id="newElementForm" onSubmit={addNew} method="post" className="form">
                             <h2>Type macros in 100g</h2>
 
                             <input id="newName" required type="text" name="name" placeholder="Food name"/><br></br>
@@ -173,7 +150,7 @@ class foodComponent extends React.Component{
                             <input id="newProtein" required step="any" min="0" type="number" name="protein" placeholder="Protein"/><br></br>
                             <input id="newSalt" required step="any" min="0" type="number" name="salt" placeholder="Salt"/><br></br>
 
-                            <input className="btn" type="submit" value="Submit" onClick={closeForm}/><br></br>
+                            <input className="btn" type="submit" value="Submit"/><br></br>
                             <button type="button" id="close" className="btn cancel" onClick={closeForm}>Close</button>
                         </form>
                     </div>
@@ -186,15 +163,14 @@ class foodComponent extends React.Component{
                         icon: 'add_circle',
                         tooltip: 'Add to date',
                         onClick: (event, rowData) => {
-                            choosenFood = rowData
-                            display(this.state.meals.indexOf(rowData)+1);
+                            chosenFood = rowData
+                            display(rowData.id);
                         }
                     }]}
                     />
-                </> : <Error/> }
+                </> }
             </>
         )
     }
 }
 
-export default foodComponent;
